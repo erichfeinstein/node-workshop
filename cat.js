@@ -1,10 +1,8 @@
 const fs = require('fs');
 
-function cat(file) {
+module.exports = (file, done) => {
   fs.readFile(file, function(err, data) {
-    if (err) throw err;
-    else console.log(data.toString());
+    if (err) done('error!');
+    else done(data.toString());
   })
 }
-
-module.exports = cat;

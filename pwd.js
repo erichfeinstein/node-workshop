@@ -1,6 +1,4 @@
-function pwd() {
-  console.log('Current directory: ' +
+module.exports = (done) => {
+  done('Current directory: ' +
     process.cwd());
 }
-
-module.exports = pwd;

@@ -1,11 +1,9 @@
 const requester = require('request');
 
-function request(url, callback) {
+module.exports = (url, done) => {
   requester(url, function(error, response, body) {
-    if (error) throw error;
-    if (response.statusCode !== 200) console.log('HTTP response code bad');
-    else console.log(body);
+    if (error) done(error);
+    if (response.statusCode !== 200) done('HTTP response code bad');
+    else done(body);
   });
 }
-
-module.exports = request;
